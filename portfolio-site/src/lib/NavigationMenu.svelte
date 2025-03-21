@@ -11,6 +11,7 @@
 	<a class="nav-menu-page-title" href="/contact">
 		<img class="nav-menu-contact" src="/svgs/contact.svg" alt="CONTACT" />
 	</a>
+	<div class="strikethrough-line"></div>
 </div>
 
 <style>
@@ -37,6 +38,15 @@
 	.nav-menu-contact:hover {
 		content: url('/svgs/contact-hover.svg');
 		margin-top: -10px; /* TODO: find a better way to get this to work */
+	}
+
+	.strikethrough-line {
+		position: relative;
+		border: 0.25px solid var(--accent-purple);
+		width: 100%;
+		/* bottom: 46px; contact strikethrough */
+		/* bottom: 125px; project strikethrough */
+		/* bottom: 211px; about strikethrough */
 	}
 
 	a {
