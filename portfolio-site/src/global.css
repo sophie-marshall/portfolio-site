@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap');
+
 :root {
 	--primary-purple: rgba(67, 7, 116, 1);
 	--secondary-purple: rgba(192, 151, 198, 1);
@@ -7,5 +9,6 @@
 
 body,
 html {
+	font-family: 'IBM Plex Sans', sans-serif;
 	background: var(--primary-purple);
 }
