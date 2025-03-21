@@ -1,0 +1,11 @@
+:root {
+	--primary-purple: rgba(67, 7, 116, 1);
+	--secondary-purple: rgba(192, 151, 198, 1);
+	--accent-purple: rgba(192, 151, 198, 0.5);
+	--accent-purple-2: rgba(67, 7, 116);
+}
+
+body,
+html {
+	background: var(--primary-purple);
+}
