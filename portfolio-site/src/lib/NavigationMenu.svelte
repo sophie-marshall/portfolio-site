@@ -39,12 +39,6 @@
 		margin-top: -10px; /* TODO: find a better way to get this to work */
 	}
 
-	.strikethrough-line {
-		position: relative;
-		border: 0.25px solid var(--accent-purple);
-		width: 100%;
-	}
-
 	a {
 		text-decoration: none;
 	}
