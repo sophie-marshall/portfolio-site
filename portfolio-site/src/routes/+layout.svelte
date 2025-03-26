@@ -1,14 +1,14 @@
 <script lang="ts">
 	import '../global.css';
+	import NavigationMenu from '$lib/NavigationMenu.svelte';
 
 	let { children } = $props();
 </script>
 
-<nav>
-	<a href="/">HOME</a>
-	<a href="/about">ABOUT</a>
-	<a href="/projects">PROJECTS</a>
-	<a href="/contact">CONTACT</a>
-</nav>
+<div class="layout">
+	<nav>
+		<NavigationMenu />
+	</nav>
+</div>
 
 {@render children()}
