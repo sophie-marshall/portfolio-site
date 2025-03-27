@@ -12,3 +12,12 @@ html {
 	font-family: 'IBM Plex Sans', sans-serif;
 	background: var(--primary-purple);
 }
+
+body {
+	padding: 60px;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
