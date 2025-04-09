@@ -2,6 +2,9 @@
 </script>
 
 <div class="navigation-menu">
+	<a class="nav-menu-page-title" href="/">
+		/
+	</a>
 	<a class="nav-menu-page-title" href="/about">
 		<img class="nav-menu-about" src="/svgs/about.svg" alt="ABOUT" />
 	</a>
