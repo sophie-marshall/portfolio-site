@@ -14,7 +14,7 @@
 				>Python</span
 			>,
 			<span>SQL</span> and <span>JavaScript</span>, with plans to expand to Java and Rust as the
-			data landscape conitnues to evolve.
+			data landscape continues to evolve.
 		</div>
 
 		<div class="current-position">
@@ -22,9 +22,11 @@
 			<span>ML/AI</span> based workflows in public media.
 		</div>
 
-		<div class="contact"><span>sophie.marshall98@gmail.com</span></div>
+		<div class="contact">
+			<a href="mailto:sophie.marshall98@gmail.com"><span>sophie.marshall98@gmail.com</span></a>
+		</div>
 	</div>
-	<img src="/images/profile-photo.JPG" alt="A pictire of me and some french onion dip!" />
+	<img src="/images/profile-photo.JPG" alt="Me and some french onion dip!" />
 </main>
 
 <style>
@@ -51,5 +53,9 @@
 		height: auto;
 		object-fit: contain;
 		align-self: flex-start;
+	}
+
+	main a {
+		text-decoration: none;
 	}
 </style>
