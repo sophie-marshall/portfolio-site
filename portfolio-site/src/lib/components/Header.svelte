@@ -11,6 +11,7 @@
 	.header {
 		display: flex;
 		justify-content: space-between;
+		padding-top: 50px;
 		align-items: center;
 		position: sticky;
 		top: 0;
