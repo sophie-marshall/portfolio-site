@@ -26,6 +26,10 @@ a {
 	color: white;
 }
 
-span {
+.span-color-text {
 	color: rgb(133, 27, 255);
+}
+
+.span-nowrap {
+	white-space: nowrap;
 }

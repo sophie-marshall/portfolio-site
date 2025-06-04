@@ -17,7 +17,6 @@
 
 	onMount(() => {
 		window.addEventListener('scroll', handleScroll);
-		// Check initial scroll position
 		handleScroll();
 
 		return () => {
@@ -27,8 +26,13 @@
 </script>
 
 {#if isVisible}
-	<button class="to-top-button" on:click={scrollToTop} transition:fade={{ duration: 200 }} aria-label="Scroll to top">
-		<img src="/svgs/up-arrow.svg" alt="to top" />
+	<button
+		class="to-top-button"
+		on:click={scrollToTop}
+		transition:fade={{ duration: 200 }}
+		aria-label="Scroll to top"
+	>
+		<img src="/images/arrow-black.png" alt="Top" />
 	</button>
 {/if}
 
@@ -41,10 +45,13 @@
 		position: fixed;
 		bottom: 25px;
 		right: 25px;
+		transition: background 0.2s ease;
+		transform: rotate(180deg);
 	}
 
 	.to-top-button:hover {
 		background: rgba(255, 255, 255, 0.315);
 		color: white;
+		filter: invert(0.5);
 	}
 </style>
