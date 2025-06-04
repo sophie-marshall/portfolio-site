@@ -7,11 +7,13 @@
 <style>
 	.nav-bar {
 		display: flex;
-		gap: 20px;
+		gap: 30px;
 		font-size: 18px;
 	}
 
 	.nav-bar a {
+		font-size: 24px;
+		font-weight: 500;
 		text-decoration: none;
 		color: white;
 	}
