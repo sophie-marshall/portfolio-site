@@ -27,7 +27,7 @@
 </script>
 
 {#if isVisible}
-	<button class="to-top-button" on:click={scrollToTop} transition:fade={{ duration: 200 }}>
+	<button class="to-top-button" on:click={scrollToTop} transition:fade={{ duration: 200 }} aria-label="Scroll to top">
 		<img src="/svgs/up-arrow.svg" alt="to top" />
 	</button>
 {/if}
