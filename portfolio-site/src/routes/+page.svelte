@@ -81,6 +81,7 @@
 	h1 {
 		font-size: 40px;
 		text-align: center;
+		font-weight: 400;
 	}
 
 	button {
