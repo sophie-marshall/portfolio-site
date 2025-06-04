@@ -44,9 +44,6 @@
 		line-height: 125%;
 	}
 
-	.text-content span {
-		color: rgb(133, 27, 255);
-	}
 	main img {
 		display: flex;
 		width: 40%;
