@@ -9,7 +9,6 @@
 	}));
 
 	let headline: HTMLElement;
-	let projectsContainer: HTMLElement;
 	let opacity = 1;
 
 	function handleScroll() {
@@ -46,7 +45,7 @@
 			<img class="down-arrow" src="/svgs/down-arrow.svg" alt="arrow" />
 		</button>
 	</div>
-	<div class="projects-container" bind:this={projectsContainer}>
+	<div class="projects-container">
 		{#each sampleProjects as project}
 			<Project projectName={project.name} thumbnail={project.thumbnail} />
 		{/each}
