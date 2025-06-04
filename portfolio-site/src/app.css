@@ -14,3 +14,9 @@ body {
 	color: var(--text-color);
 	font-family: var(--font-family);
 }
+
+button {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}

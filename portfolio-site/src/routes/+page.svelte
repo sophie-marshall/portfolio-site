@@ -78,15 +78,9 @@
 		height: 50px;
 	}
 
-	h1 {
+	.headline h1 {
 		font-size: 40px;
 		text-align: center;
 		font-weight: 400;
-	}
-
-	button {
-		background: transparent;
-		border: none;
-		cursor: pointer;
 	}
 </style>

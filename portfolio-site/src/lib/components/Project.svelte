@@ -6,8 +6,8 @@
 </script>
 
 <div class="project">
-	<div class="thumbnail-container">
-		<img class="thumbnail" src={thumbnail} alt="Project thumbnail" />
+	<div class="thumbnail">
+		<img src={thumbnail} alt="Project thumbnail" />
 		<div class="overlay">
 			<h2>{projectName}</h2>
 		</div>
@@ -15,13 +15,13 @@
 </div>
 
 <style>
-	.thumbnail-container {
+	.thumbnail {
 		aspect-ratio: 4/3;
 		overflow: hidden;
 		position: relative;
 	}
 
-	.thumbnail {
+	.thumbnail img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
@@ -41,7 +41,7 @@
 		opacity: 0;
 	}
 
-	.thumbnail-container:hover .overlay {
+	.thumbnail:hover .overlay {
 		opacity: 1;
 	}
 </style>
