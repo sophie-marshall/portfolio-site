@@ -1,18 +1,19 @@
 <script lang="ts">
-	let { projectName, thumbnail } = $props<{
+	let { projectName, thumbnail, slug } = $props<{
 		projectName: string;
 		thumbnail?: string;
+		slug?: string;
 	}>();
 </script>
 
-<div class="project">
+<a href="/work/{slug}" class="project">
 	<div class="thumbnail">
 		<img src={thumbnail} alt="Project thumbnail" />
 		<div class="overlay">
-			<h2>{projectName}</h2>
+			<h2>{projectName.toUpperCase()}</h2>
 		</div>
 	</div>
-</div>
+</a>
 
 <style>
 	.thumbnail {
@@ -39,6 +40,10 @@
 		justify-content: center;
 		align-items: center;
 		opacity: 0;
+	}
+
+	.overlay h2 {
+		font-weight: 500;
 	}
 
 	.thumbnail:hover .overlay {

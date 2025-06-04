@@ -2,11 +2,7 @@
 	import Project from '$lib/components/Project.svelte';
 	import { onMount } from 'svelte';
 
-	// create an array of sample projects
-	const sampleProjects = Array.from({ length: 8 }, (_, i) => ({
-		name: `Sample Project ${i + 1}`,
-		thumbnail: '/images/stock-image.png'
-	}));
+	export let data;
 
 	let headline: HTMLElement;
 	let opacity = 1;
@@ -46,8 +42,8 @@
 		</button>
 	</div>
 	<div class="projects-container">
-		{#each sampleProjects as project}
-			<Project projectName={project.name} thumbnail={project.thumbnail} />
+		{#each data.projects as project}
+			<Project projectName={project.title} thumbnail={project.image} slug={project.slug} />
 		{/each}
 	</div>
 </main>
