@@ -1,6 +1,7 @@
 export interface Content {
-    type: string;
-    text: string;
+    type: "text" | "image";
+    text?: string;
+    image?: string;
 }
 
 export type Project = {
@@ -24,6 +25,7 @@ export const projects: Project[] = [
                 type: "text",
                 text: "ResumeRAG reimagines the interview process with <span>Retrieval Augmented Generation (RAG)</span>. Instead of generic phone screens and surface-level resume scans, what if candidates could upload rich materials—resumes, portfolios, personal statements—and let AI do the talking? This project explores how RAG can surface deeper, more personalized insights from your real experience.",
             },
+
             {
                 type: "text",
                 text: "During the <span>retrieval</span> phase, embedded text is searched semantically—matching natural language queries to the context provided by the user. This enables more nuanced and relevant responses, helping AI move beyond basic keyword matching and into deeper, more meaningful interview conversations.",
@@ -31,7 +33,20 @@ export const projects: Project[] = [
             {
                 type: "text",
                 text: "Results from the retrieval phase are used to <span>augment</span> an LLM’s <span>generated</span> output. With the right prompting techniques, we can guide the model to respond using only your curated documents—rather than its broad, general training data. This significantly reduces the risk of hallucinations and keeps conversations grounded in the context you care about."
-            }
+            },
+            {
+                type: "image",
+                image: "/images/resume-rag.png",
+                text: "This should be replaced with ETL diagram"
+            },
+            {
+                type: "text",
+                text: "Something about extracting data from different sources. Another thing about embedding the content. A final note about specialized data storage with vector search enabled."
+            },
+            {
+                type: "text",
+                text: "Additional comments about evolving vector storage and retrieval techniques and store offerings"
+            },
         ]
     },
     {

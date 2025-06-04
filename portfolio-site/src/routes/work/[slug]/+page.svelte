@@ -1,17 +1,27 @@
 <script lang="ts">
-	export let data;
+	import type { Project } from '$lib/data/projects';
+	import ResumeRag from '$lib/components/ResumeRag.svelte';
 
-	const project = data.project;
+	export let data: { project: Project };
+
+	const project: Project = data.project;
 </script>
 
 <main>
 	<img class="hero" src={project.image} alt={project.title} />
 	<div class="content-container">
-		{#each project.content as content}
-			<div class="content">
-				{@html content.text}
-			</div>
+		{#each project.content ?? [] as content}
+			{#if content.type === 'image'}
+				<img class="image-content" src={content.image} alt={content.text} />
+			{:else}
+				<div class="text-content">
+					{@html content.text}
+				</div>
+			{/if}
 		{/each}
+		{#if project.slug === 'resume-rag'}
+			<ResumeRag />
+		{/if}
 	</div>
 </main>
 
@@ -19,7 +29,8 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		padding-top: 50px;
+		margin-top: 50px;
+		padding: 0px 20px;
 		font-size: 24px;
 		line-height: 125%;
 	}
@@ -36,7 +47,11 @@
 		gap: 30px;
 	}
 
-	.content {
+	.text-content {
 		width: 70%;
+	}
+
+	.image-content {
+		width: 100%;
 	}
 </style>
