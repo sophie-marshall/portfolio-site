@@ -3,6 +3,8 @@
 :root {
 	--background-color: black;
 	--text-color: white;
+	--primary-purple: rgb(133, 27, 255);
+	--hover-gray: rgba(255, 255, 255, 0.315);
 	--font-family: 'Raleway', sans-serif;
 }
 
@@ -24,6 +26,15 @@ button {
 a {
 	text-decoration: none;
 	color: white;
+}
+
+.inline-link {
+	color: var(--primary-purple);
+}
+
+.inline-link:hover {
+	background: rgba(133, 27, 255, 0.281);
+	border-radius: 5px;
 }
 
 .span-color-text {

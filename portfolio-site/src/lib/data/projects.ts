@@ -1,7 +1,7 @@
 export interface Content {
-    type: "text" | "image";
+    type: "text" | "image" | "dual-image";
     text?: string;
-    image?: string;
+    image?: string | string[];
 }
 
 export type Project = {
@@ -23,30 +23,36 @@ export const projects: Project[] = [
         content: [
             {
                 type: "text",
-                text: "ResumeRAG reimagines the interview process with <span>Retrieval Augmented Generation (RAG)</span>. Instead of generic phone screens and surface-level resume scans, what if candidates could upload rich materials—resumes, portfolios, personal statements—and let AI do the talking? This project explores how RAG can surface deeper, more personalized insights from your real experience.",
-            },
-
-            {
-                type: "text",
-                text: "During the <span>retrieval</span> phase, embedded text is searched semantically—matching natural language queries to the context provided by the user. This enables more nuanced and relevant responses, helping AI move beyond basic keyword matching and into deeper, more meaningful interview conversations.",
+                text: "<a class='inline-link' href='/blog/reimagining-the-interview-process-with-rag'>ResumeRAG reimagines the interview process as we know it.</a> Instead of generic phone screens and surface-level resume scans, what if candidates could upload rich materials—resumes, portfolios, personal statements—and let AI do the talking? "
             },
             {
                 type: "text",
-                text: "Results from the retrieval phase are used to <span>augment</span> an LLM’s <span>generated</span> output. With the right prompting techniques, we can guide the model to respond using only your curated documents—rather than its broad, general training data. This significantly reduces the risk of hallucinations and keeps conversations grounded in the context you care about."
+                text: "The primary goals of this project were to: <ol><li>Build an ETL pipeline robust enough to handle both structure and unstructured data</li><li>Explore available vector storage solutions</li><li>Walk away with a working prototype to share</li></ol>"
+            },
+            {
+                type: "text",
+                text: "Let's get into the details!"
             },
             {
                 type: "image",
-                image: "/images/resume-rag.png",
-                text: "This should be replaced with ETL diagram"
+                image: "/images/airflow.png",
             },
             {
                 type: "text",
-                text: "Something about extracting data from different sources. Another thing about embedding the content. A final note about specialized data storage with vector search enabled."
+                text: "The pipeline is orchestrated using <a class='inline-link' href='https://airflow.apache.org/'>Apache Airflow</a>, with modular components handling extraction, transformation, and loading (ETL). Currently, a set of hardcoded rules determines how raw data is routed to the right transformation function. In future iterations, I’d like to integrate existing <a class='inline-link' href='/work/agentic-data-engineering'>Agentic Data Engineering</a> work to make that process smarter—leveraging an LLM to dynamically route data based on content and context."
+            },
+            {
+                type: "dual-image",
+                image: ["/images/pinecone.jpg", "/images/pgvector.png"],
             },
             {
                 type: "text",
-                text: "Additional comments about evolving vector storage and retrieval techniques and store offerings"
+                text: "There’s no shortage of vector storage solutions out there—new ones seem to launch every month. For this project, we explored both <a class='inline-link' href='https://www.pinecone.io/'>Pinecone</a> and <a class='inline-link' href='https://github.com/pgvector/pgvector'>PostgreSQL with pgvector</a> enabled."
             },
+            {
+                type: "text",
+                text: "While Pinecone was fun to experiment with, <span class='span-color-text'>PostgreSQL ultimately proved to be the better fit</span>. It lets us tap into the power of relational databases while also meeting users (myself included) where they already are—no need to learn a whole new system just to get started with vector search."
+            }
         ]
     },
     {
