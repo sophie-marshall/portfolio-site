@@ -19,6 +19,22 @@ from projects.serializers import ProjectPageSerializer
 class ProjectPagesAPI(PagesAPIViewSet):
     serializer_class = ProjectPageSerializer
 
+    listing_default_fields = [
+        "title",
+        "hero_image",
+        "tags",
+    ]
+
+    # This ensures detail view has them too
+    body_fields = [
+        "title",
+        "hero_image",
+        "tags",
+        "description",
+        "external_link",
+        "content",
+    ]
+
     def get_queryset(self):
         return ProjectPage.objects.live()
 
