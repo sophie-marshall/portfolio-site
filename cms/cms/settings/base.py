@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "wagtail.api.v2",
+    "projects",
 ]
 
 MIDDLEWARE = [

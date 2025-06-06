@@ -11,8 +11,22 @@ from search import views as search_views
 from wagtail.api.v2.views import PagesAPIViewSet
 from wagtail.api.v2.router import WagtailAPIRouter
 
+from projects.models import ProjectPage
+from projects.serializers import ProjectPageSerializer
+
+
+# filter to project page entries
+class ProjectPagesAPI(PagesAPIViewSet):
+    serializer_class = ProjectPageSerializer
+
+    def get_queryset(self):
+        return ProjectPage.objects.live()
+
+
 api_router = WagtailAPIRouter("wagtailapi")
 api_router.register_endpoint("pages", PagesAPIViewSet)
+api_router.register_endpoint("projects", ProjectPagesAPI)
+
 
 urlpatterns = [
     path("django-admin/", admin.site.urls),
