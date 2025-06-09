@@ -4,7 +4,6 @@
 
 <div class="header">
 	<NavBar />
-	<img src="/images/favicon.png" alt="favicon" />
 </div>
 
 <style>
@@ -18,7 +17,7 @@
 		z-index: 99;
 	}
 
-	.header img {
+	/* .header img {
 		height: 28px;
-	}
+	} */
 </style>

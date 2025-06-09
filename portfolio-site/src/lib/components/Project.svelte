@@ -1,16 +1,17 @@
 <script lang="ts">
-	let { projectName, thumbnail, slug } = $props<{
-		projectName: string;
-		thumbnail?: string;
-		slug?: string;
+	import type { ProjectIndexItem } from '$lib/types';
+	import { constructImageUrl } from '$lib/utils';
+
+	let { project } = $props<{
+		project: ProjectIndexItem;
 	}>();
 </script>
 
-<a href="/work/{slug}" class="project">
+<a href="/work/{project.meta.slug}" class="project">
 	<div class="thumbnail">
-		<img src={thumbnail} alt="Project thumbnail" />
+		<img src={constructImageUrl(project.hero_image)} alt="Project thumbnail" />
 		<div class="overlay">
-			<h2>{projectName.toUpperCase()}</h2>
+			<h2>{project.title.toUpperCase()}</h2>
 		</div>
 	</div>
 </a>
