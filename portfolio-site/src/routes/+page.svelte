@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import Project from '$lib/components/Project.svelte';
+	import type { ProjectIndexItem } from '$lib/types';
 	import { onMount } from 'svelte';
 
-	export let data;
+	const projectIndex: ProjectIndexItem[] = $page.data.projectIndex;
 
 	let headline: HTMLElement;
 	let opacity = 1;
@@ -46,8 +48,8 @@
 		</button>
 	</div>
 	<div class="projects-container">
-		{#each data.projects as project}
-			<Project projectName={project.title} thumbnail={project.image} slug={project.slug} />
+		{#each projectIndex as project}
+			<Project {project} />
 		{/each}
 	</div>
 </main>

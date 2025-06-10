@@ -11,37 +11,7 @@ from search import views as search_views
 from wagtail.api.v2.views import PagesAPIViewSet
 from wagtail.api.v2.router import WagtailAPIRouter
 
-from projects.models import ProjectPage
-from projects.serializers import ProjectPageSerializer
-
-
-# filter to project page entries
-class ProjectPagesAPI(PagesAPIViewSet):
-    serializer_class = ProjectPageSerializer
-
-    listing_default_fields = [
-        "title",
-        "hero_image",
-        "tags",
-    ]
-
-    # This ensures detail view has them too
-    body_fields = [
-        "title",
-        "hero_image",
-        "tags",
-        "description",
-        "external_link",
-        "content",
-    ]
-
-    def get_queryset(self):
-        return ProjectPage.objects.live()
-
-
-api_router = WagtailAPIRouter("wagtailapi")
-api_router.register_endpoint("pages", PagesAPIViewSet)
-api_router.register_endpoint("projects", ProjectPagesAPI)
+from .api import api_router
 
 
 urlpatterns = [
@@ -49,7 +19,7 @@ urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
-    path("api/v2/", api_router.urls),
+    path("api/", api_router.urls),
 ]
 
 

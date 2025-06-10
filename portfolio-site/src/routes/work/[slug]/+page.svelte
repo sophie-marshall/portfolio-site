@@ -1,27 +1,20 @@
 <script lang="ts">
-	import type { Project } from '$lib/data/projects';
-	import ResumeRag from '$lib/components/ResumeRag.svelte';
+	import { page } from '$app/stores';
+	import type { Project } from '$lib/types';
 
-	export let data: { project: Project };
+	import { constructImageUrl } from '$lib/utils';
 
-	const project: Project = data.project;
+	const project: Project = $page.data.project;
 </script>
 
 <main>
-	<img class="hero" src={project.image} alt={project.title} />
+	<img class="hero" src={constructImageUrl(project.hero_image)} alt={project.title} />
 	<div class="content-container">
-		{#each project.content ?? [] as content}
-			{#if content.type === 'image'}
-				<img class="image-content" src={content.image} alt={content.text} />
-			{:else}
-				<div class="text-content">
-					{@html content.text}
-				</div>
+		{#each project.content as contentBlock}
+			{#if contentBlock.value.type === 'text'}
+				{@html contentBlock.value.text}
 			{/if}
 		{/each}
-		{#if project.slug === 'resume-rag'}
-			<ResumeRag />
-		{/if}
 	</div>
 </main>
 

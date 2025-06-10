@@ -96,7 +96,7 @@ class ProjectPage(Page):
         APIField("description"),
         APIField(
             "hero_image",
-            serializer=ImageRenditionField("fill-800x450"),
+            serializer=ImageRenditionField("original"),
         ),
         APIField("external_link"),
         APIField("tags"),
