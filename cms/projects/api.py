@@ -12,7 +12,7 @@ class ProjectPageSerializer(serializers.ModelSerializer):
     Define a serializer for help convert Images into something compatible with JSON API
     """
 
-    hero_image = ImageRenditionField("original")
+    hero_image = ImageRenditionField("original", source="hero_image")
 
     class Meta:
         model = ProjectPage

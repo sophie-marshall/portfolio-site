@@ -6,8 +6,6 @@
 
 	const projectIndex: ProjectIndexItem[] = $page.data.projectIndex;
 
-	console.log(projectIndex);
-
 	let headline: HTMLElement;
 	let opacity = 1;
 

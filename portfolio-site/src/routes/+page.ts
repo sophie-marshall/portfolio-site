@@ -1,7 +1,6 @@
 import type { ProjectIndexAPIResponse, ProjectIndexItem } from '$lib/types';
-import { projects } from '$lib/data/projects';
 
-export async function load() {
+export async function load({ fetch }) {
 	try {
 		const response = await fetch('http://localhost:8000/api/projects/', {
 			method: 'GET',
