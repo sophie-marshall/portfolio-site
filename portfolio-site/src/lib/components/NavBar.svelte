@@ -2,6 +2,7 @@
 	<a href="/">Work</a>
 	<a href="/about">About</a>
 	<a href="/blog">Blog</a>
+	<a href="/sandbox">Sandbox</a>
 </div>
 
 <style>

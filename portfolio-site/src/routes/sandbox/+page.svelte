@@ -1,36 +1,30 @@
 <script lang="ts">
 	import { sampleProject } from '$lib/data/project_sandbox';
-	import { page } from '$app/stores';
-	import type { Project } from '$lib/types';
-
-	import { constructImageUrl } from '$lib/utils';
-
-	const project: Project = $page.data.project;
 </script>
 
-<main class="work-page">
+<main class="project-page">
 	<div class="page-header">
-		<span class="base-page">work/<span class="current-page">{project.meta.slug}</span></span>
-		<div class="subtitle">{project.subtitle}</div>
+		<span class="base-page">work/<span class="current-page">{sampleProject.slug}</span></span>
+		<div class="subtitle">{sampleProject.subtitle}</div>
 	</div>
-	<img src={constructImageUrl(project.hero_image)} alt="Project Hero" />
+	<img src={sampleProject.hero_image} alt="Project Hero" />
 	<div class="overview">
 		<div class="overview-left">
 			<div class="problem">
 				<h4>Problem</h4>
-				<p>{@html project.problem}</p>
+				<p>{@html sampleProject.problem}</p>
 			</div>
 			<div class="approach">
 				<h4>Approach</h4>
-				<p>{@html project.approach}</p>
+				<p>{@html sampleProject.approach}</p>
 			</div>
 		</div>
 		<div class="overview-right">
 			<div class="stack">
 				<h4>Tech Stack</h4>
 				<div class="stack-tags">
-					{#each project.tags as tag}
-						<span class={`${tag.toLowerCase()}-tag`}>{tag}</span>
+					{#each sampleProject.stack as stackItem}
+						<span class={`${stackItem.toLowerCase()}-tag`}>{stackItem}</span>
 					{/each}
 				</div>
 			</div>
@@ -45,14 +39,9 @@
 </main>
 
 <style>
-	.work-page {
+	.project-page {
 		padding: 50px 0;
 		gap: 20px;
-	}
-
-	.work-page img {
-		display: flex;
-		width: 100%;
 	}
 
 	.page-header {
@@ -101,5 +90,10 @@
 	.stack-tags {
 		display: flex;
 		gap: 5px;
+	}
+
+	img {
+		display: flex;
+		width: 100%;
 	}
 </style>
