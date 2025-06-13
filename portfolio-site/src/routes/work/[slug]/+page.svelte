@@ -3,8 +3,6 @@
 	import { page } from '$app/stores';
 	import type { Project } from '$lib/types';
 
-	import { constructImageUrl } from '$lib/utils';
-
 	const project: Project = $page.data.project;
 </script>
 
@@ -13,7 +11,6 @@
 		<span class="base-page">work/<span class="current-page">{project.meta.slug}</span></span>
 		<div class="subtitle">{project.subtitle}</div>
 	</div>
-	<img src={constructImageUrl(project.hero_image)} alt="Project Hero" />
 	<div class="overview">
 		<div class="overview-left">
 			<div class="problem">
@@ -30,7 +27,9 @@
 				<h4>Tech Stack</h4>
 				<div class="stack-tags">
 					{#each project.tags as tag}
-						<span class={`${tag.toLowerCase()}-tag`}>{tag}</span>
+						<span class={`${tag.toLowerCase()}-tag`}>
+							{tag}
+						</span>
 					{/each}
 				</div>
 			</div>
@@ -50,9 +49,14 @@
 		gap: 20px;
 	}
 
-	.work-page img {
-		display: flex;
-		width: 100%;
+	.work-page h4 {
+		font-size: 20px;
+		font-weight: 700;
+		margin-bottom: 10px;
+	}
+
+	.work-page p {
+		font-size: 16px;
 	}
 
 	.page-header {
@@ -64,7 +68,8 @@
 	}
 
 	.base-page {
-		color: grey;
+		color: #999;
+		font-size: 14px;
 	}
 
 	.current-page {
@@ -72,7 +77,7 @@
 	}
 
 	.subtitle {
-		font-weight: 500;
+		font-weight: 700;
 		font-size: 32px;
 	}
 
