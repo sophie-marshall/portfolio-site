@@ -9,7 +9,7 @@
 html,
 body {
 	margin: 0;
-	padding: 0px 10px;
+	padding: 0px 20px;
 	background-color: var(--background-color);
 	color: var(--text-color);
 	font-family: var(--font-family);
@@ -32,4 +32,26 @@ a {
 
 .span-nowrap {
 	white-space: nowrap;
+}
+
+.python-tag,
+.airflow-tag,
+.langchain-tag,
+.aws-tag {
+	width: fit-content;
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+
+.python-tag {
+	background: rgba(0, 128, 0, 0.7);
+}
+.airflow-tag {
+	background: rgba(128, 128, 128, 0.7);
+}
+.langchain-tag {
+	background: rgba(0, 113, 128, 0.7);
+}
+.aws-tag {
+	background: rgba(255, 187, 0, 0.7);
 }

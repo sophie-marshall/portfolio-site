@@ -58,9 +58,10 @@ export interface Project {
 	id: number;
 	meta: ProjectMeta;
 	title: string;
-	description: string;
+	subtitle: string;
 	hero_image: Image;
 	external_link: string[] | null;
 	tags: string[];
-	content: ProjectContent[];
+	problem: string;
+	approach: string;
 }

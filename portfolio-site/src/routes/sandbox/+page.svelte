@@ -1,35 +1,30 @@
 <script lang="ts">
 	import { sampleProject } from '$lib/data/project_sandbox';
-	import { page } from '$app/stores';
-	import type { Project } from '$lib/types';
-
-	const project: Project = $page.data.project;
 </script>
 
-<main class="work-page">
+<main class="project-page">
 	<div class="page-header">
-		<span class="base-page">work/<span class="current-page">{project.meta.slug}</span></span>
-		<div class="subtitle">{project.subtitle}</div>
+		<span class="base-page">work/<span class="current-page">{sampleProject.slug}</span></span>
+		<div class="subtitle">{sampleProject.subtitle}</div>
 	</div>
+	<img src={sampleProject.hero_image} alt="Project Hero" />
 	<div class="overview">
 		<div class="overview-left">
 			<div class="problem">
 				<h4>Problem</h4>
-				<p>{@html project.problem}</p>
+				<p>{@html sampleProject.problem}</p>
 			</div>
 			<div class="approach">
 				<h4>Approach</h4>
-				<p>{@html project.approach}</p>
+				<p>{@html sampleProject.approach}</p>
 			</div>
 		</div>
 		<div class="overview-right">
 			<div class="stack">
 				<h4>Tech Stack</h4>
 				<div class="stack-tags">
-					{#each project.tags as tag}
-						<span class={`${tag.toLowerCase()}-tag`}>
-							{tag}
-						</span>
+					{#each sampleProject.stack as stackItem}
+						<span class={`${stackItem.toLowerCase()}-tag`}>{stackItem}</span>
 					{/each}
 				</div>
 			</div>
@@ -44,19 +39,9 @@
 </main>
 
 <style>
-	.work-page {
+	.project-page {
 		padding: 50px 0;
 		gap: 20px;
-	}
-
-	.work-page h4 {
-		font-size: 20px;
-		font-weight: 700;
-		margin-bottom: 10px;
-	}
-
-	.work-page p {
-		font-size: 16px;
 	}
 
 	.page-header {
@@ -68,8 +53,7 @@
 	}
 
 	.base-page {
-		color: #999;
-		font-size: 14px;
+		color: grey;
 	}
 
 	.current-page {
@@ -77,7 +61,7 @@
 	}
 
 	.subtitle {
-		font-weight: 700;
+		font-weight: 500;
 		font-size: 32px;
 	}
 
@@ -106,5 +90,10 @@
 	.stack-tags {
 		display: flex;
 		gap: 5px;
+	}
+
+	img {
+		display: flex;
+		width: 100%;
 	}
 </style>

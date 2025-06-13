@@ -2,6 +2,7 @@
 	<a href="/">Work</a>
 	<a href="/about">About</a>
 	<a href="/blog">Blog</a>
+	<a href="/sandbox">Sandbox</a>
 </div>
 
 <style>
@@ -12,7 +13,7 @@
 	}
 
 	.nav-bar a {
-		font-size: 24px;
+		font-size: 16px;
 		font-weight: 500;
 		text-decoration: none;
 		color: white;

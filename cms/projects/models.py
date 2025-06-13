@@ -1,10 +1,8 @@
 from django.db import models
 
 from wagtail.models import Page
-from wagtail.fields import StreamField
 from wagtail.admin.panels import FieldPanel
-from wagtail.images.blocks import ImageChooserBlock
-from wagtail.blocks import RichTextBlock, StructBlock, ChoiceBlock
+
 from wagtail.api import APIField
 from wagtail.images.api.fields import ImageRenditionField
 
@@ -12,18 +10,6 @@ from taggit.models import TaggedItemBase
 
 from modelcluster.fields import ParentalKey
 from modelcluster.tags import ClusterTaggableManager
-
-
-class ContentBlock(StructBlock):
-    type = ChoiceBlock(choices=[("text", "Text"), ("image", "Image")], required=True)
-    text = RichTextBlock(
-        features=["h2", "h3", "bold", "italic", "ul", "ol", "link"], required=False
-    )
-    image = ImageChooserBlock(required=False)
-
-    class Meta:
-        icon = "doc-full"
-        label = "Content Block"
 
 
 class ProjectPageTag(TaggedItemBase):
@@ -61,7 +47,7 @@ class ProjectPage(Page):
     """
 
     ### --- PROJECT FIELDS/ATTRIBUTES --- ###
-    description = models.TextField()  # short description for the project
+    subtitle = models.TextField()  # short description for the project
     hero_image = models.ForeignKey(
         "wagtailimages.Image",
         null=False,  # set hero image to be required
@@ -74,9 +60,8 @@ class ProjectPage(Page):
         through=ProjectPageTag,  # use our custom tag model
         blank=True,  # allow no tags
     )
-    content = StreamField(
-        [("block", ContentBlock())], use_json_field=True
-    )  # create a content block that pulls from our custom StructBlock defined above
+    problem = models.TextField()
+    approach = models.TextField()
 
     ### --- PAGE TREE DEFINITION --- ###
     parent_page_types = ["projects.ProjectsIndexPage"]  # parent must be the index page
@@ -84,21 +69,23 @@ class ProjectPage(Page):
 
     ### --- ADMIN INTERFACE DEFINITION --- ###
     content_panels = Page.content_panels + [
-        FieldPanel("description"),
+        FieldPanel("subtitle"),
         FieldPanel("hero_image"),
         FieldPanel("external_link"),
         FieldPanel("tags"),
-        FieldPanel("content"),
+        FieldPanel("problem"),
+        FieldPanel("approach"),
     ]
 
     ### --- API DEFINITION --- ###
     api_fields = [
-        APIField("description"),
+        APIField("subtitle"),
         APIField(
             "hero_image",
             serializer=ImageRenditionField("original"),
         ),
         APIField("external_link"),
         APIField("tags"),
-        APIField("content"),
+        APIField("problem"),
+        APIField("approach"),
     ]
