@@ -2,6 +2,7 @@
 	import { sampleProject } from '$lib/data/project_sandbox';
 	import { page } from '$app/stores';
 	import type { Project } from '$lib/types';
+	import ResumeRag from '$lib/components/ResumeRag.svelte';
 
 	const project: Project = $page.data.project;
 </script>
@@ -35,10 +36,14 @@
 			</div>
 			<div class="repo">
 				<h4>Repo</h4>
-				<a href={sampleProject.external_link} target="_blank" rel="noopener noreferrer">
-					{sampleProject.external_link}
+				<a href={project.external_link} target="_blank" rel="noopener noreferrer">
+					{project.external_link}
 				</a>
 			</div>
+			<!-- <div class="demo">
+				<h4>Demo</h4>
+				<ResumeRag />
+			</div> -->
 		</div>
 	</div>
 </main>
@@ -106,5 +111,12 @@
 	.stack-tags {
 		display: flex;
 		gap: 5px;
+	}
+
+	.demo {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		margin-top: auto;
 	}
 </style>

@@ -65,3 +65,9 @@ export interface Project {
 	problem: string;
 	approach: string;
 }
+
+export interface Message {
+	text: string;
+	role: 'user' | 'assistant';
+	timestemp?: string;
+}
