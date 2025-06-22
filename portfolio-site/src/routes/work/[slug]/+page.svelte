@@ -36,14 +36,15 @@
 			</div>
 			<div class="repo">
 				<h4>Repo</h4>
-				<a href={project.external_link} target="_blank" rel="noopener noreferrer">
+				<a
+					class="project-link"
+					href={project.external_link}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					{project.external_link}
 				</a>
 			</div>
-			<!-- <div class="demo">
-				<h4>Demo</h4>
-				<ResumeRag />
-			</div> -->
 		</div>
 	</div>
 </main>
@@ -113,10 +114,7 @@
 		gap: 5px;
 	}
 
-	.demo {
-		display: flex;
-		flex-direction: column;
-		flex: 1;
-		margin-top: auto;
+	.project-link:hover {
+		text-decoration: line-through;
 	}
 </style>

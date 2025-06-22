@@ -37,7 +37,9 @@ a {
 .python-tag,
 .airflow-tag,
 .langchain-tag,
-.aws-tag {
+.aws-tag,
+.langchain-tag,
+.ai-tag {
 	width: fit-content;
 	padding: 5px 10px;
 	border-radius: 5px;
@@ -54,4 +56,7 @@ a {
 }
 .aws-tag {
 	background: rgba(255, 187, 0, 0.7);
+}
+.ai-tag {
+	background: rgba(183, 0, 255, 0.7);
 }
