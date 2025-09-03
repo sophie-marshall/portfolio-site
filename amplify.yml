@@ -7,7 +7,6 @@ frontend:
         - npm ci
     build:
       commands:
-        - cd portfolio-site
         - npm run build
   artifacts:
     baseDirectory: portfolio-site/build
