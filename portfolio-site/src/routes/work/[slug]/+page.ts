@@ -1,8 +1,7 @@
 import type { Project } from '$lib/types';
 import { error } from '@sveltejs/kit';
-// import { PUBLIC_BASE_URL } from '$env/static/public';
+import { PUBLIC_BASE_URL } from '$env/static/public';
 
-const PUBLIC_BASE_URL = 'http://localhost:8000';
 
 export async function load({ params, fetch }) {
 	try {

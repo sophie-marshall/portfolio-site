@@ -98,10 +98,10 @@ WSGI_APPLICATION = "cms.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "portfolio_site_cms",
-        "USER": "wagtail_admin",
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-        "HOST": "portfolio_cms_db",
+        "NAME": os.environ.get("RDS_DB", "cms"),
+        "USER": os.environ.get("RDS_USER", "postgres"),
+        "PASSWORD": os.getenv("RDS_PASSWORD", "postgres"),
+        "HOST": os.environ.get("RDS_HOST", None),
         "PORT": "5432",
     }
 }
