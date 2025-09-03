@@ -1,0 +1,24 @@
+version: 1
+applications:
+  - appRoot: portfolio-site # <-- your Svelte app folder
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            # Install dependencies
+            - npm ci --cache .npm --prefer-offline
+        build:
+          commands:
+            # Load .env variables for build
+            - npm install -g dotenv-cli
+            - dotenv -e .env -- npm run build
+            # Optional: install production deps if needed (as in your base yml)
+            - cd build/compute/default/ || echo "Skip if folder does not exist"
+            - npm i --production || echo "Skip if not needed"
+      artifacts:
+        baseDirectory: build
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - ".npm/**/*"
