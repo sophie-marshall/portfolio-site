@@ -1,6 +1,7 @@
 import type { ProjectIndexAPIResponse, ProjectIndexItem } from '$lib/types';
-import { PUBLIC_BASE_URL } from '$env/static/public';
+// import { PUBLIC_BASE_URL } from '$env/static/public';
 
+const PUBLIC_BASE_URL = 'http://localhost:8000';
 export async function load({ fetch }) {
 	try {
 		const response = await fetch(`${PUBLIC_BASE_URL}/api/projects/`, {

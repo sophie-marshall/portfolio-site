@@ -1,5 +1,7 @@
 import type { Image } from '$lib/types';
-import { PUBLIC_BASE_URL } from '$env/static/public';
+// import { PUBLIC_BASE_URL } from '$env/static/public';
+
+const PUBLIC_BASE_URL = 'http://localhost:8000';
 
 export function constructImageUrl(image: Image): string {
 	const imagePath = `${import.meta.env.DEV ? PUBLIC_BASE_URL : ''}${image.url}`;
