@@ -1,11 +1,10 @@
 import type { Project } from '$lib/types';
 import { error } from '@sveltejs/kit';
-import { PUBLIC_BASE_URL } from '$env/static/public';
-
+import { env } from '$env/dynamic/private';
 
 export async function load({ params, fetch }) {
 	try {
-		const response = await fetch(`${PUBLIC_BASE_URL}/api/projects/${params.slug}`, {
+		const response = await fetch(`${env.PUBLIC_BASE_URL}/api/projects/${params.slug}`, {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
