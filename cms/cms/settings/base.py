@@ -16,6 +16,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+DEBUG = True
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
@@ -98,8 +100,8 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "portfolio_site_cms",
         "USER": "wagtail_admin",
-        "PASSWORD": os.getenv("WAGTAIL_ADMIN_PASSWORD"),
-        "HOST": os.getenv("WAGTAIL_DB_LOCALHOST"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "HOST": "portfolio_cms_db",
         "PORT": "5432",
     }
 }
