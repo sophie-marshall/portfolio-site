@@ -28,6 +28,13 @@ a {
 
 .span-color-text {
 	color: rgb(133, 27, 255);
+	padding: 2px;
+}
+
+.span-color-text:hover {
+	background: rgba(133, 27, 255, 0.425);
+	padding: 2px;
+	border-radius: 4px;
 }
 
 .span-nowrap {
